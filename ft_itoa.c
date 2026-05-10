@@ -48,7 +48,7 @@ static char *fill_string(char *result, long number, int last_index)
          number = number * -1;
     }
 
-    // Fill the string with digits from the end because we are extracting the last digit first because of the modulus operator.
+    // Fill the string with digits from the end
     while (number > 0)
     {
         result[last_index] = (number % 10) + '0'; // Convert the last digit to its character representation and store it in the result string
