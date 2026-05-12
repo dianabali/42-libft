@@ -24,7 +24,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	pstr2 = s2;
 	while (n--) // Iterate until n = 0
 	{
-		if (pstr1 != pstr2) // Compare the values
+		if (*pstr1 != *pstr2) // Compare the values
 			return (*pstr1 - *pstr2); // Return the difference
 		pstr1++;
 		pstr2++;
