@@ -15,13 +15,13 @@ char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
 	{
-		if (*(unsigned char *)s == (unsigned char)c)
+		if (*(unsigned char *)s == (unsigned char)c) // Compare the current character with the target chararacter
 			return ((char *)s);
 		s++;
 	}
-	if (*(unsigned char *)s == (unsigned char)c)
+	if (*(unsigned char *)s == (unsigned char)c) // Check the last character position (the '\0')
 		return ((char *)s);
-	return (NULL);
+	return (NULL); // Return NULL if 'c' is not found in 's'
 }
 
 /* int	main(void)
