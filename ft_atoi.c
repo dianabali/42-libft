@@ -1,9 +1,9 @@
 /*
-ft_atoi
-Converts a string representation of a number into an integer.
-Returns the converted integer value.
-Parameters:
-  - nptr: the string to convert.
+	ft_atoi
+	Converts a string representation of a number into an integer.
+	Returns the converted integer value.
+	Parameters:
+	  - nptr: the string to convert.
 */
 
 // #include <stdio.h>
@@ -17,11 +17,11 @@ int	ft_atoi(const char *nptr)
 	result = 0;
 	sign = 1;
 
-  // Skip spaces, tabs, newlines, vertical tabs, form feeds, carriage returns
+  	// Skip spaces, tabs, newlines, vertical tabs, form feeds, carriage returns
 	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
 		nptr++;
 
-  // Handle optional sign
+  	// Handle optional sign
 	if (*nptr == '+' || *nptr == '-')
 	{
 		if (*nptr == '-')
@@ -29,7 +29,7 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 
-  // Convert to integers
+  	// Convert to integers
 	while (*nptr >= '0' && *nptr <= '9')
 	{
 		result = (result * 10) + (*nptr - '0');
