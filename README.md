@@ -31,7 +31,7 @@ This allows you to:
 **How to compile:**
 1. Clone this repository using:
 ```
-git clone <repo-url>
+git clone https://github.com/dianabali/42-libft.git
 ```
 2. Compile the library:
 ```
