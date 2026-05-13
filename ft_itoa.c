@@ -4,7 +4,6 @@
 /*
     count_chars_needed
     Calculates the number of characters needed to represent the given number as a string.
-
 */
 static int  count_chars_needed(long number)
 {
