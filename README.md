@@ -39,9 +39,9 @@ make libft.a
 ```
 
 **How to delete the files:**
-- Run ```make clean``` to clean the object `.o` files.
-- Run ```make fclean``` to clean the object files and `libft.a`.
-- Run ```make re``` to clean and recompile everything.
+- Run `make clean` to clean the object `.o` files.
+- Run `make fclean` to clean the object files and `libft.a`.
+- Run `make re` to clean and recompile everything.
 
 ## Resources
 - Linux man.
