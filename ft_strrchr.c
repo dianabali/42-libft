@@ -24,7 +24,7 @@ char	*ft_strrchr(const char *s, int c)
 			end = ((char *)s);
 		s++;
 	}
-	if (*(unsigned char *)s == (unsigned char)c)
+	if (*(unsigned char *)s == (unsigned char)c) // Check the last character position (the '\0')
 		return ((char *)s);
 	return (end);
 }
