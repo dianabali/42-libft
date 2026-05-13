@@ -56,6 +56,44 @@ static char *split_words(const char *s, char c)
 }
 
 /*
+    free_words
+    Frees all already-created words and then frees the array itself.
+*/
+static void	free_words(char **words, int i)
+{
+	while (i > 0)
+		free(words[--i]); //
+	free(words);
+}
+
+/*
+    fill_words
+    Skips delimiters, extracts words, and stores them in the 'words' array.
+*/
+static int	fill_words(char **words, const char *s, char c)
+{
+	int	i;
+
+	i = 0;
+	while (*s)
+	{
+		while (*s == c) // Skip delimiters
+			s++;
+		if (*s)
+		{
+			words[i] = split_words(s, c); // Extracts words
+			if (!words[i])
+				return (free_words(words, i), 0); // Handle allocation failure (comma operator - call free_words() and return (0)
+			i++;
+		}
+		while (*s && *s != c) // "Move until the word ends"
+			s++;
+	}
+	words[i] = NULL; // Add the ending of the array
+	return (1);
+}
+
+/*
     ft_split
     Splits the string 's' into an array of strings using the separator 'c'. The array is terminated by a NULL pointer.
     Returns a pointer to the array of strings, or NULL if the allocation fails.
@@ -65,43 +103,25 @@ static char *split_words(const char *s, char c)
 */
 char	**ft_split(char const *s, char c)
 {
-    int word_count; // Count the number of words in the string
-    char **words; // Array of strings to store the words
-    int i; // Index for iterating through the array of words
-    
-    if (!s)
-        return NULL;
-    word_count = count_words(s, c);
+	int		word_count; // Count the words in the string
+	char	**words; // Array of strings to store the words
 
-    // Allocate memory for the array of strings, including for the NULL terminator
-    words = (char **)malloc((word_count + 1) * sizeof(char *));
-    if (!words)
-        return NULL;
+    // Check for NULL input
+	if (!s)
+		return (NULL);
 
-    i = 0;
-    while (i < word_count)
-    {
-        // Skip delimiters
-        while (*s == c)
-            s++;
-        // Extract the word and store it in the array
-        words[i] = split_words(s, c);
+    // Count how many words are in the string
+	word_count = count_words(s, c);
 
-        // If memory allocation for the word fails, free previously allocated memory and return NULL
-        if (!words[i])
-        {
-            while (i >= 0)
-                free(words[--i]);
-            free(words);
-            return NULL;
-        }
-        // Move to the next word
-        while (*s && *s != c)
-            s++;
-        i++;
-    }
-    words[word_count] = NULL; // Null-terminate the array of strings
-    return words;
+    // Allocate memory for the array
+	words = (char **)malloc((word_count + 1) * sizeof(char *));
+
+	if (!words) // For memory allocation failure
+		return (NULL);
+    // Fill the array with extracted words
+	if (!fill_words(words, s, c)) // If array build fails
+		return (NULL);
+	return (words); 
 }
 
 /* int main(void)
