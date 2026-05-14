@@ -10,10 +10,9 @@ Parameters:
 
 int	ft_isprint(int c)
 {
-	if (!((c >= 0 && c <= 32) || c == 127)) // Non-printable characters in ASCII
+	if (c >= 32 && c <= 126)
 		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 /* int	main(void)
