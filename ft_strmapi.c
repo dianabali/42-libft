@@ -2,7 +2,7 @@
     ft_strmapi
     Applies the function ’f’ to each character of the string ’s’ to create a new string (with malloc(3)) resulting from successive applications of ’f’.
     Returns the string created from the successive applications of ’f’ or NULL if the allocation fails.
-    ParametersË
+    Parameters:
         c: The string on which to iterate.
         f: The function to apply to each character.
 */
