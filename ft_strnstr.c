@@ -28,8 +28,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		j = 0;
     	// Compare chars of big to chars of little. Don't exceed len
-		while (i + j < len && big[i + j] && little[j] 
-			&& big[i + j] == little[j])
+		// i + j < len - do not read past length
+		// big[i + j] - current char is not '\0'
+		// little[j] - current char in little is not '\0'
+		// big[i + j] == little[j] - check if the characters match
+		while (big[i + j] == little[j] && i + j < len && big[i + j] && little[j])
 		{
 			j++;
       		// If match fount, return big starting from little
