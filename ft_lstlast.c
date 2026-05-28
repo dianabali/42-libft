@@ -30,10 +30,8 @@ t_list	*ft_lstlast(t_list *lst)
 	ft_lstadd_front(&head, ft_lstnew("ccc"));
 	ft_lstadd_front(&head, ft_lstnew("ddd"));
 	ft_lstadd_front(&head, ft_lstnew("eee"));
-	
-	last = ft_lstlast(head);
 
-	if (last)
-		printf("last elem: %s", (char *)last->content);
+	last = ft_lstlast(head);
+	printf("last elem: %s", (char *)last->content);
 	return (0);
 } */
