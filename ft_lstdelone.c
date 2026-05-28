@@ -19,23 +19,23 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	}
 }
 
-/* void	del_content(void *content)
+void	del_content(void *content)
 {
 	free(content);
 }
 
-int	main(void)
+/* int	main(void)
 {
-	t_list	*head;
+	t_list	*node;
 	char	*str;
 
 	str = ft_strdup("hello world");
-	head = ft_lstnew(str);
+	node = ft_lstnew(str);
 
-	printf("before: %s\n", (char *)head->content);
+	printf("before: %s\n", (char *)node->content);
 
-	ft_lstdelone(head, del_content);
-	
-	printf("after: deleted");
+	ft_lstdelone(node, del_content);
+
+	printf("after: %s\n", (char *)node->content); // seg fault
 	return (0);
 } */
