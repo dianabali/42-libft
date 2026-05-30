@@ -10,7 +10,7 @@ SRC = ${PART_1} ${PART_2} ${PART_3}
 
 OBJS = ${SRC:.c=.o}
 
-CC = gcc
+CC = cc
 
 RM = rm -f
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 INCLUDE = -I .
 
-.o:.c 
+%.o:%.c 
 	${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
